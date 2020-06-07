@@ -5,17 +5,24 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
 
-/*
+
 import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
-*/
+
 
 public class SendGetRequestUsingRestAssured {
 
+    //Get All Users
+
     public static void main(String[] args) {
 
-        Response response = given().auth().basic("sk_test_eV9OUy5mi6yPCbx2LUxmip2300p6l0XdXf", "")
-                            .get("https://api.stripe.com/v1/customers");
+//        Response response = given().param("limit", 3).auth().basic("sk_test_eV9OUy5mi6yPCbx2LUxmip2300p6l0XdXf", "")
+//                            .get("https://api.stripe.com/v1/customers");
+
+        Response response = given().formParam("limit", 3)
+                .formParam("email", "JudithRForbush@jourrapide.com")
+                .auth().basic("sk_test_eV9OUy5mi6yPCbx2LUxmip2300p6l0XdXf", "")
+                .get("https://api.stripe.com/v1/customers");
         //response.prettyPrint();
         String jsonResponse = response.asString();
         System.out.println(jsonResponse);
@@ -30,5 +37,13 @@ public class SendGetRequestUsingRestAssured {
         //given().header("content-type", "application/JSON").auth().basic("sk_test_eV9OUy5mi6yPCbx2LUxmip2300p6l0XdXf", "");
 
     }
+/*
+    //Get a specific user
 
+    public static void main(String[] args) {
+        Response response = given().header("Authorization", "Bearer sk_test_eV9OUy5mi6yPCbx2LUxmip2300p6l0XdXf")
+            .get("https://api.stripe.com/v1/customers/cus_HEDiqBKlaDiSRc");
+        response.prettyPrint();
+    }
+*/
 }
