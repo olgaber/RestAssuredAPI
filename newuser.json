@@ -1,0 +1,24 @@
+{
+  "name": "Lawrence M. Xavier",
+  "email": "LawrenceMXavier@dayrep.com",
+  "address": {
+    "line1": "4754 Pearlman Avenue",
+    "city": "Worcester",
+    "state": "MA",
+    "zip": "01608"
+  },
+  "phone": [
+    916557072,
+    916557073
+  ],
+  "education": [
+    {
+      "course": "BTech",
+      "marks": 75
+    },
+    {
+      "course" : "MTech",
+      "marks": 85
+    }
+  ]
+}
